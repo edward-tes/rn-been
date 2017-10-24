@@ -1,12 +1,21 @@
 import React from "react"
-import {View, Text} from "react-native"
+import {
+  NavigationProvider,
+  StackNavigation,
+  createRouter,
+} from "@expo/ex-navigation"
+import Home from "home"
+
+const Router = createRouter(() => ({
+  home: () => Home,
+}))
 
 export default class App extends React.Component {
   render() {
     return (
-      <View>
-        <Text> Hello</Text>
-      </View>
+      <NavigationProvider router={Router}>
+        <StackNavigation initialRoute={Router.getRoute("home")} />
+      </NavigationProvider>
     )
   }
 }
