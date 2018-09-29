@@ -7,7 +7,6 @@ import com.microsoft.codepush.react.CodePush;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
-import com.example.luyc.toast.ToastPackage;
 import com.facebook.soloader.SoLoader;
 
 import java.util.Arrays;
@@ -31,9 +30,13 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
-          new ToastPackage()
+            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG)
       );
+    }
+
+    @Override
+    protected String getJSMainModuleName() {
+      return "index";
     }
   };
 

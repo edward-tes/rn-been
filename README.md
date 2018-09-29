@@ -7,3 +7,5 @@ $ yarn install
 $ react-native run-android
 $ yarn start
 ```
+
+## Rename the App Name

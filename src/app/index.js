@@ -1,21 +1,23 @@
 import React from "react"
 import {
-  NavigationProvider,
-  StackNavigation,
-  createRouter,
-} from "@expo/ex-navigation"
+  Router,
+  Stack,
+  Scene
+} from "react-native-router-flux"
 import Home from "home"
 
-const Router = createRouter(() => ({
-  home: () => Home,
-}))
+// const Router = createRouter(() => ({
+//   home: () => Home,
+// }))
 
 export default class App extends React.Component {
   render() {
     return (
-      <NavigationProvider router={Router}>
-        <StackNavigation initialRoute={Router.getRoute("home")} />
-      </NavigationProvider>
+      <Router>
+        <Stack key="root">
+          <Scene key="home" component={Home} title="Home"/>
+        </Stack>
+      </Router>
     )
   }
 }
